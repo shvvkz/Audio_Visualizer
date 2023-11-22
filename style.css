@@ -1,0 +1,123 @@
+:root{
+  --bgColor : hsla(0, 0%, 11%,1);
+  --bgColorLight : hsla(0, 0%, 11%,1);
+  --textColor : hsla(242, 86%, 88%, 1);
+  --textColorDark : hsla(242, 36%, 0%, 1);
+  --paperColor: 	hsl(300, 78%, 79%);
+  --paperColorDark: hsla(242, 86%, 34%, 1);
+  --shadowColorFaint: hsla(0, 0%, 0%, 0.2);
+}
+
+::selected{
+  color: var(--textColorDark);
+}
+
+html, body{
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  background: var(--bgColor);
+  background: linear-gradient(135deg, var(--bgColor), var(--bgColorLight));
+  color: var(--textColor);
+  font-family: 'Saira', sans-serif;
+  position: relative;
+}
+
+*{
+  box-sizing: border-box;
+  transition: all 0.12s cubic-bezier(0.42, 0.54, 0.22, 1.26);
+}
+
+#canvas {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+audio {
+  position: fixed;
+  left: 10px;
+  bottom: -10px;
+  width: calc(100% - 20px);
+}
+
+audio.active{
+  bottom: 10px;
+}
+
+#thefile{
+  width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: 1;
+}
+
+label.file{
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  background: var(--bgColorLight);
+  color: var(--paperColor);
+  font-weight: 700;
+  box-shadow: 0 20px 60px var(--shadowColorFaint);
+  border: 1px solid var(--paperColor);
+  cursor: pointer;
+}
+
+
+label.file:hover{
+    background: var(--paperColor);
+    color: var(--bgColorLight);
+    transform: translate3d(-50%, -55%, 0);
+}
+
+label.file:active{
+  background: var(--paperColor);
+  color: var(--bgColorLight);
+    transform: translate3d(-50%, -45%, 0);
+}
+
+label.file.normal{
+  transform: translate3d(10%, 50%, 0);
+  padding: 0.2rem 2rem;
+
+  top: 0;
+  left: 0;
+}
+@media screen and (max-width: 1100px){
+  label.file{
+    font-size: 2rem;
+  }
+}
+
+
+audio::-webkit-media-controls-panel{
+  background: var(--bgColor);
+}
+
+audio::-webkit-media-controls-mute-button,
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-timeline-container,
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display,
+audio::-webkit-media-controls-timeline,
+audio::-webkit-media-controls-volume-slider-container,
+audio::-webkit-media-controls-volume-slider,
+audio::-webkit-media-controls-seek-back-button,
+audio::-webkit-media-controls-seek-forward-button,
+audio::-webkit-media-controls-fullscreen-button,
+audio::-webkit-media-controls-rewind-button,
+audio::-webkit-media-controls-return-to-realtime-button,
+audio::-webkit-media-controls-toggle-closed-captions-button {
+  color: var(--paperColor); /* Change la couleur des éléments de contrôle */
+}
